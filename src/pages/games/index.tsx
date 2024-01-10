@@ -12,6 +12,8 @@ export interface Game {
     console: string;
     slug: string;
     thumbnail:string;
+    rating:number;
+    releaseDate:string;
   };
 }
 
@@ -52,25 +54,43 @@ const GamesPage: React.FC = () => {
 
   return (
     <div className={styles['games']}>
-      <h1>Games</h1>
-
+      <h1>All games:</h1>
             {games.map((game) => (
-        <div key={game.id} className={styles['gamelist']}>
+        <Link href={`/games/${game.id}`}>
+            <div key={game.id} className={styles['gamelist']}>
           <h2>
             <Link href={`/games/${game.id}`}>
               {game.attributes.title}
             </Link>
+            <br />
+            <br />
+
+            <br />
+            Rating: {game.attributes.rating}
+            <br />
+            Console:
+            {game.attributes.console}
+            <br />
+
+            Release date: {game.attributes.releaseDate}
+            <br />
+            <br />
+
+                    More details
+
           </h2>
           {game.attributes.thumbnail && (
-            <img
-              src={game.attributes.thumbnail}
-              alt={game.attributes.title}
-              style={{ width: '30%' }}
-            />
-          )}
+                <img
+                src={game.attributes.thumbnail}
+                alt={game.attributes.title}
+                style={{ width: '30%' }}
+                />
+            )}
         </div>
+        </Link>
       ))}
     </div>
+    
   );
 };
 

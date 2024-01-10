@@ -52,7 +52,6 @@ const HomePage: React.FC = () => {
 
   return (
     <div className={styles['games']}>
-      <h1>Game directory for reviews</h1>
 
       {games.map((game) => (
         <div key={game.id} className={styles['oneGame']}>
@@ -60,7 +59,6 @@ const HomePage: React.FC = () => {
             <img
               src={game.attributes.thumbnail}
               alt={game.attributes.title}
-              style={{ width: '20%' }}
             />
           )}
             <div className={styles['gameDetails']}>

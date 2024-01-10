@@ -1,11 +1,15 @@
 
 .game-container {
-    background-color: #1a1a1a;
+    background: linear-gradient(to top, transparent, #1a1a1a);
     color: #ffffff;
     text-align: center;
     padding: 20px;
     border-radius: 10px;
     width: 60vw;
+  }
+
+  .game-container h2 {
+    color: gold;
   }
   
   .thumbnail {
@@ -29,6 +33,9 @@
   
   .back-link {
     margin-top: 20px;
+    border: 2px solid gold;
+    width: 120px;
+    border-radius: 20px;
   }
 
 .container {
@@ -74,6 +81,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 100px;
+}
+
+.games a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .games h1 {
@@ -99,6 +112,10 @@
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.411), transparent, transparent);
 }
 
+.oneGame img {
+  width: 22%;
+}
+
 .gameDetails {
   width: 60vw;
   display: flex;
@@ -111,3 +128,81 @@
   text-decoration: none;
   color: rgb(219, 196, 138);
 }
+
+.gamelist {
+  display: flex;
+  border: 1px solid white;
+  margin: 0px 0 50px 0;
+  width: 60vw;
+  justify-content: space-around;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.411), transparent, transparent);
+}
+
+.gamelist a {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .oneGame {
+    width: 100vw;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .oneGame h2 {
+    font-size: 18px;
+  }
+
+
+  .oneGame img {
+    width: 42%;
+  }
+
+  .gameDetails {
+    width: 100vw;
+    
+  }
+
+  .gamelist {
+    width: 100vw;
+    height: auto;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .gamelist h2 {
+    font-size: 18px;
+  }
+
+  .gamelist img {
+    width: 42%;
+  }
+
+  .container, .main, .game-container{
+    min-width: 100vw;
+    margin:0;
+    padding:0;
+  }
+
+  .header .footer .nav {
+    margin:0;
+    padding:0;
+    width: 100vw;
+  }
+  .screenshots-container {
+    width: 100vw;    
+  }
+
+  .screenshots-container img {
+    width: 90%;
+  }
+}
+

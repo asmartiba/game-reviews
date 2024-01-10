@@ -1,4 +1,3 @@
-// api.ts
 import config from './config';
 
 export interface Game {

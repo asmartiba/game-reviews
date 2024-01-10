@@ -1,4 +1,3 @@
-// pages/_app.tsx
 import type { AppProps } from 'next/app';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,7 +13,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <header className={styles.header}>
         <nav className={styles.nav}>
             <Image src={logo} width="150" height="150" alt='logo' />
-            <Link href="/"><h1>Game Reviews </h1></Link>
+            <Link href="/"><h1>Game Reviews Directory </h1></Link>
         </nav>
       </header>
 
