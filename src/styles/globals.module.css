@@ -19,11 +19,6 @@
     width: 20vw;
   }
   
-  .screenshots-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
   
   .screenshot {
     margin: 5px;
@@ -144,6 +139,15 @@
   font-size: 30px;
 }
 
+.screenshots-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.screenshots-container img {
+  max-width: 600px;
+}
 
 @media screen and (max-width: 768px) {
 
@@ -176,6 +180,10 @@
     justify-content: center;
     align-items: center;
     
+  }
+
+  .thumbnail {
+    width: 60vw;
   }
 
   .gamelist h2 {
