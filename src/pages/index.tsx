@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import strapi from './strapi';
 import config from './config';
+import styles from '../styles/globals.module.css'; 
 
 export interface Game {
   id: number;
@@ -36,7 +37,7 @@ const HomePage: React.FC = () => {
       console.log('API Response:', responseData);
 
       if (responseData && responseData.data && Array.isArray(responseData.data)) {
-        setGames(responseData.data);
+        setGames(responseData.data.slice(0, 3));
       } else {
         console.error('Invalid data format:', responseData);
       }
@@ -50,25 +51,40 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Games</h1>
+    <div className={styles['games']}>
+      <h1>Game directory for reviews</h1>
 
       {games.map((game) => (
-  <div key={game.id}>
-    <h2>
-      <Link href={`/games/${game.id}`}>
-        {game.attributes.title}
+        <div key={game.id} className={styles['oneGame']}>
+          {game.attributes.thumbnail && (
+            <img
+              src={game.attributes.thumbnail}
+              alt={game.attributes.title}
+              style={{ width: '20%' }}
+            />
+          )}
+            <div className={styles['gameDetails']}>
+                <h2>
+                  <Link href={`/games/${game.id}`}>
+                    {game.attributes.title}
+                  </Link>
+                  <br />
+                  <span style={{color: '#4ef398'}}>Console:</span> {game.attributes.console}
+                </h2>
+
+                <Link href={`/games/${game.id}`}>
+                    More details
+                </Link>
+            </div>
+
+
+        </div>
+      ))}
+
+
+      <Link href="/games">
+          <button className={styles['viewMoreButton']}>More games </button>
       </Link>
-    </h2>
-    {game.attributes.thumbnail && (
-      <img
-        src={game.attributes.thumbnail}
-        alt={game.attributes.title}
-        style={{ width: '30%' }}
-      />
-    )}
-  </div>
-))}
     </div>
   );
 };

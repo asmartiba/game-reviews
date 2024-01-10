@@ -1,0 +1,113 @@
+
+.game-container {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60vw;
+  }
+  
+  .thumbnail {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 20vw;
+  }
+  
+  .screenshots-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .screenshot {
+    margin: 5px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+  }
+  
+  .back-link {
+    margin-top: 20px;
+  }
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, rgb(4, 58, 58), rgb(12, 35, 41), rgb(25, 3, 31));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  background: linear-gradient(to bottom, #06062c91, transparent);
+  color: #fff;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  color: white;
+  background: linear-gradient(to top, #06062c91, transparent);
+  width: 100vw;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.games {
+  color: #4ef398;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.games h1 {
+  color: #dbac64;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.games button {
+  background-color: transparent;
+  border: 2px solid gold;
+  width: 200px;
+  height: 55px;
+  border-radius: 20px;
+  color: gold;
+
+}
+
+.oneGame {
+  display: flex;
+  border: 1px solid white;
+  margin: 0px 0 50px 0;
+  width: 60vw;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.411), transparent, transparent);
+}
+
+.gameDetails {
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.gameDetails a { 
+  text-decoration: none;
+  color: rgb(219, 196, 138);
+}

@@ -2,6 +2,7 @@
 import { useRouter } from 'next/router';
 import { fetchGame, Game } from '../api';
 import Link from 'next/link';
+import styles from '../../styles/globals.module.css'; 
 
 interface GamePageProps {
   game: Game | null;
@@ -10,18 +11,15 @@ interface GamePageProps {
 const GamePage: React.FC<GamePageProps> = ({ game }) => {
   const router = useRouter();
 
-  console.log('Router Query:', router.query);
-  console.log('Game:', game);
-
   if (!game) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div>
+    <div className={styles['game-container']}>
       <h1>{game.attributes.title}</h1>
 
-      <img src={game.attributes.thumbnail} alt={game.attributes.title} />
+      <img className={styles.thumbnail} src={game.attributes.thumbnail} alt={game.attributes.title} />
       <p>{game.attributes.description}</p>
 
       <h2>Review</h2>
@@ -31,13 +29,13 @@ const GamePage: React.FC<GamePageProps> = ({ game }) => {
       <p>{game.attributes.console}</p>
 
       <h3>Screenshots:</h3>
-      <div>
+      <div className={styles['screenshots-container']}>
         {game.attributes.screenshots.map((screenshot, index) => (
-          <img key={index} src={screenshot.url} alt={`Screenshot ${index + 1}`} />
+          <img key={index} src={screenshot.url} alt={`Screenshot ${index + 1}`} className={styles.screenshot} />
         ))}
       </div>
 
-      <div>
+      <div className={styles['back-link']}>
         <Link href="/">
           <h2>Back</h2>
         </Link>
