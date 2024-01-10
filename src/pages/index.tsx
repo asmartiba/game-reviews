@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import strapi from './strapi';
-import config from './config';
+import strapi from '../services/strapi';
+import config from '../services/config';
 import styles from '../styles/globals.module.css'; 
 
 export interface Game {

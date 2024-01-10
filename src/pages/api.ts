@@ -1,4 +1,4 @@
-import config from './config';
+import config from '../services/config';
 
 export interface Game {
   id: number;
