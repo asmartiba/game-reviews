@@ -1,17 +1,16 @@
 'use client';
-// HomePage.tsx
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import GameCard from './GameCard';
-import strapi from '../../services/strapi';
+import strapi from './strapi';
 import config from './config';
 
-interface Game {
+export interface Game {
   id: number;
   attributes: {
     title: string;
     console: string;
     slug: string;
+    thumbnail:string;
   };
 }
 
@@ -34,6 +33,8 @@ const HomePage: React.FC = () => {
 
       const responseData = await response.json();
 
+      console.log('API Response:', responseData);
+
       if (responseData && responseData.data && Array.isArray(responseData.data)) {
         setGames(responseData.data);
       } else {
@@ -53,10 +54,21 @@ const HomePage: React.FC = () => {
       <h1>Games</h1>
 
       {games.map((game) => (
-        <div key={game.id}>
-          <GameCard title={game.attributes.title} console={game.attributes.console} slug={game.attributes.slug} />
-        </div>
-      ))}
+  <div key={game.id}>
+    <h2>
+      <Link href={`/games/${game.id}`}>
+        {game.attributes.title}
+      </Link>
+    </h2>
+    {game.attributes.thumbnail && (
+      <img
+        src={game.attributes.thumbnail}
+        alt={game.attributes.title}
+        style={{ width: '30%' }}
+      />
+    )}
+  </div>
+))}
     </div>
   );
 };
